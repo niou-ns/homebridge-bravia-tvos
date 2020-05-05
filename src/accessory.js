@@ -144,7 +144,7 @@ class TelevisionAccessory {
         Characteristic.SleepDiscoveryMode.ALWAYS_DISCOVERABLE
       );
     
-    Television.addCharacteristic(Characteristic.RemoteKey);
+    //Television.addCharacteristic(Characteristic.RemoteKey);
     
     Television.addCharacteristic(Characteristic.PowerModeSelection);
 
