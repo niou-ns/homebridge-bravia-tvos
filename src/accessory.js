@@ -135,7 +135,7 @@ class TelevisionAccessory {
   
     let Television = new Service.Television(this.accessory.displayName, this.accessory.displayName);
     
-    Television.setCharacteristic(Characteristic.ConfiguredName, this.accessory.displayName);
+    //Television.setCharacteristic(Characteristic.ConfiguredName, this.accessory.displayName);
       
     Television
       .setCharacteristic(
@@ -143,7 +143,7 @@ class TelevisionAccessory {
         Characteristic.SleepDiscoveryMode.ALWAYS_DISCOVERABLE
       );
     
-    Television.addCharacteristic(Characteristic.RemoteKey);
+    //Television.addCharacteristic(Characteristic.RemoteKey);
     
     Television.addCharacteristic(Characteristic.PowerModeSelection);
 
