@@ -27,7 +27,7 @@
     "android"
   ],
   "engines": {
-    "node": "^8.9.1",
+    "node": ">=8.9.1",
     "homebridge": ">=0.4.49"
   },
   "dependencies": {
