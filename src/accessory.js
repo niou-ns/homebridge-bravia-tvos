@@ -133,9 +133,9 @@ class TelevisionAccessory {
   
   handleTelevision(){
   
-    let Television = new Service.Television(this.accessory.displayName, this.accessory.displayName);
+    let Television = new Service.Television(this.accessory.displayName);
     
-    //Television.setCharacteristic(Characteristic.ConfiguredName, this.accessory.displayName);
+    Television.setCharacteristic(Characteristic.ConfiguredName, this.accessory.displayName);
       
     Television
       .setCharacteristic(
@@ -143,7 +143,7 @@ class TelevisionAccessory {
         Characteristic.SleepDiscoveryMode.ALWAYS_DISCOVERABLE
       );
     
-    //Television.addCharacteristic(Characteristic.RemoteKey);
+    Television.addCharacteristic(Characteristic.RemoteKey);
     
     Television.addCharacteristic(Characteristic.PowerModeSelection);
 
@@ -157,7 +157,7 @@ class TelevisionAccessory {
   
   handleSpeaker(){ 
   
-    let Speaker = new Service.TelevisionSpeaker(this.accessory.displayName + ' Speaker', this.accessory.displayName + ' Speaker');
+    let Speaker = new Service.TelevisionSpeaker(this.accessory.displayName + ' Speaker');
     
     Speaker
       .setCharacteristic(Characteristic.VolumeControlType, Characteristic.VolumeControlType.ABSOLUTE);
