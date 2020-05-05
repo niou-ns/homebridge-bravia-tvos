@@ -123,7 +123,8 @@ class TelevisionAccessory {
 
     } catch(err){
 
-      this.logger.error(this.accessory.displayName + ': An error occured while handling accessories!')
+      this.logger.error(this.accessory.displayName + ': An error occured while handling accessories!');
+      console.log(err);
       this.logger.error(JSON.stringify(err, null, 4));
 
     }
