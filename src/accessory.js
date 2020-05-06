@@ -4,7 +4,6 @@ const LogUtil = require('../lib/LogUtil.js');
 const IRCC = require('../lib/IRCC.js');
 
 const tcpp = require('tcp-ping');
-const btoa = require('btoa');
 
 const tcpprobe = (ip,port) => new Promise((resolve, reject) => tcpp.probe(ip,port, (err, available) => err ? reject(err) : resolve(available)));
 const timeout = ms => new Promise(res => setTimeout(res, ms));
@@ -46,6 +45,18 @@ class TelevisionAccessory {
     this.handleAccessory(add, external);
 
   }
+  
+  btoa(str) {
+    let buffer;
+
+    if (str instanceof Buffer) {
+      buffer = str;
+    } else {
+      buffer = Buffer.from(str.toString(), 'binary');
+    }
+
+    return buffer.toString('base64');
+  }  
 
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
   // Services
@@ -61,7 +72,7 @@ class TelevisionAccessory {
 
       this.logger.info(this.accessory.displayName + ': Authenticated!');
       
-      if(this.accessory.getServiceByUUIDAndSubType(Service.Television, btoa(this.accessory.displayName))){
+      if(this.accessory.getServiceByUUIDAndSubType(Service.Television, this.btoa(this.accessory.displayName))){
     
         this.service = this.accessory.getServiceByUUIDAndSubType(Service.Television, this.accessory.displayName);
     
@@ -135,7 +146,7 @@ class TelevisionAccessory {
   
   handleTelevision(){
   
-    let Television = new Service.Television(this.accessory.displayName, btoa(this.accessory.displayName));
+    let Television = new Service.Television(this.accessory.displayName, this.btoa(this.accessory.displayName));
     
     Television.setCharacteristic(Characteristic.ConfiguredName, this.accessory.displayName);
       
