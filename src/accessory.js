@@ -60,7 +60,7 @@ class TelevisionAccessory {
 
       this.logger.info(this.accessory.displayName + ': Authenticated!');
       
-      if(this.accessory.getServiceByUUIDAndSubType(Service.Television, this.accessory.displayName)){
+      if(this.accessory.getServiceByUUIDAndSubType(Service.Television, btoa(this.accessory.displayName))){
     
         this.service = this.accessory.getServiceByUUIDAndSubType(Service.Television, this.accessory.displayName);
     
@@ -134,7 +134,7 @@ class TelevisionAccessory {
   
   handleTelevision(){
   
-    let Television = new Service.Television(this.accessory.displayName);
+    let Television = new Service.Television(this.accessory.displayName, btoa(this.accessory.displayName));
     
     Television.setCharacteristic(Characteristic.ConfiguredName, this.accessory.displayName);
       
