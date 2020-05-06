@@ -74,7 +74,7 @@ class TelevisionAccessory {
       
       if(this.accessory.getServiceByUUIDAndSubType(Service.Television, this.btoa(this.accessory.displayName))){
     
-        this.service = this.accessory.getServiceByUUIDAndSubType(Service.Television, this.accessory.displayName);
+        this.service = this.accessory.getServiceByUUIDAndSubType(Service.Television, this.btoa(this.accessory.displayName));
     
       } else {
     
