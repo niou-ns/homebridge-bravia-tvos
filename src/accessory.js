@@ -4,6 +4,7 @@ const LogUtil = require('../lib/LogUtil.js');
 const IRCC = require('../lib/IRCC.js');
 
 const tcpp = require('tcp-ping');
+const btoa = require('btoa');
 
 const tcpprobe = (ip,port) => new Promise((resolve, reject) => tcpp.probe(ip,port, (err, available) => err ? reject(err) : resolve(available)));
 const timeout = ms => new Promise(res => setTimeout(res, ms));
